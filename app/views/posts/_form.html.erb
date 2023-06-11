@@ -1,4 +1,4 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,6 +15,11 @@
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
+
+  <div>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, multiple: true %>
+  </div>  
 
   <div>
     <%= form.submit %>
