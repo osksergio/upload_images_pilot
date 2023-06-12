@@ -49,6 +49,8 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    @post.images.each { |image| image.purge_later }
+    
     @post.destroy
 
     respond_to do |format|
