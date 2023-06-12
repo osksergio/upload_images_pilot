@@ -3,5 +3,10 @@
     <strong>Title:</strong>
     <%= post.title %>
   </p>
+</div>  
 
-</div>
+<div class="field">
+  <% post.images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
+</div>  
